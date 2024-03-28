@@ -1,0 +1,40 @@
+﻿@using EStore.Exensions;
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "List of Products";
+}
+
+<div class="row justify-content-xl-between justify-content-center my-5  mx-auto productlayout">
+    @foreach (var item in Model)
+    {
+        <div class="productcard col-xl-6 col-12 mb-5">
+
+            <div class="photo d-flex align-items-center">
+                <img src="@item.ImageURL" style="max-width: 240px;max-height :240px; width : 100%;" >
+            </div>
+            <div class="description">
+                <h2 class="h2card">@item.ProductName
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="text-black float-right" asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-fill"></i></a>
+                    }
+                </h2>
+                <h4 class="h4card">@item.Company.CompanyName</h4>
+                <h1 class="h1card">@item.Price.ToString("c")</h1>
+                <p class="pcard">Category: @(item.Category.GetDisplayName())</p>
+                <a class="btn btn-outline-primary" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">
+                    <i class="bi bi-eye-fill"></i> Show Details
+                </a>
+                <a class="btn btn-primary text-white"
+                   asp-controller="Orders"
+                   asp-action="AddToShoppingCart"
+                   asp-route-id="@item.Id">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+@await Html.PartialAsync("_CreateItem", "Products") 

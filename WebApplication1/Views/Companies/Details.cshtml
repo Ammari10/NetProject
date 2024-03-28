@@ -1,0 +1,100 @@
+﻿@model Company
+
+@{
+    ViewData["Title"] = "Details of the Company";
+}
+
+<div class="row text">
+    <div class= "col-md-8 offset-2">
+        <p>
+            <h1>
+                
+                Details for @Model.CompanyName</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div class="form-group text-center">
+                    <img class="border-info" src="@Model.CompanyLogoURL" style="max-width: 200px"/>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CompanyName" class="control-label"></label>
+                    <input asp-for="CompanyName" class="form-control" readonly />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CompanyURL" class="control-label"></label>
+                    <input asp-for="CompanyURL" class="form-control" readonly />
+                    <span asp-validation-for="CompanyURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control" readonly rows="4"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    }
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* h2 class="text-center mb-3">Top Products</h2>
+<div class="row justify-content-between mx-auto" style="max-width: 2200px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-12 border-primary card mb-3" style="max-width: 550px;">
+            <div class="row flex-column g-0 h-100">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @item.ProductName
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                                }
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="row flex-grow-1">
+                    <div class="col-md-6">
+                        <img src="@item.ImageURL" width="100%" alt="@item.ProductName">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <p class="card-text">@item.Description</p>
+                            <p class="card-text"><b>Company: </b>@item.Company.CompanyName</p>
+                            <p class="card-text"><b>Category: </b>@item.Category</p>
+                            <p class="card-text"><b>Release Date: </b>@item.ReleaseDate.ToString("dd MMM yy")</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer ">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">
+                                <i class="bi bi-eye-fill"></i> Show Details
+                            </a>
+                            <a class="btn btn-success text-white @((DateTime.Now > item.ReleaseDate) ? "disabled" : "")"
+                               asp-controller="Orders"
+                               asp-action="AddItemToShoppingCart"
+                               asp-route-id="@item.Id">
+                                <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+ *@

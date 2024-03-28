@@ -1,0 +1,65 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Product details";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-primary">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.ProductName
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.ImageURL" width="100%" alt="@Model.ProductName">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">@Model.Description</p>
+                        <p class="card-text">
+                            <b>Company: </b>
+                            <a asp-controller="Companies" asp-action="Details" asp-route-id="@Model.CompanyId">
+                                @Model.Company.CompanyName
+                            </a>
+                        </p>
+                        <p class="card-text"><b>Category: </b>@Model.Category</p>
+                        <p class="card-text"><b>Release Date: </b>@Model.ReleaseDate.ToString("dd MMM yy")</p>
+                        <p class="card-text">
+                            <b>Company: </b>
+                            <hr />
+                            <div class="row">
+                            
+                                    <div class="column text-center">
+                                    <img class="border-info" src="@Model.Company.CompanyLogoURL" style="max-width: 150px" />
+                                        <br />
+                                        <a asp-controller="Companies" asp-action="Details" asp-route-id="@Model.CompanyId">@Model.Company.CompanyName</a>
+                                    </div>
+                                }
+                            </div>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                Back to List
+                            </a>
+                            <a class="btn btn-primary text-white)"
+                               asp-controller="Orders" 
+                               asp-action="AddToShoppingCart" asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))</a>
+                        </p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>

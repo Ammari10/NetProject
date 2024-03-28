@@ -1,0 +1,160 @@
+﻿@using EStore.Exensions;
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="carouselExampleCaptions" class="carousel slide mb-5 mx-auto" data-bs-slide="false" style="max-width: 2200px;"> 
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/css/hhh.jpg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+            <img src="~/css/ss.png" class="d-block w-100" alt="..." />
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div >
+<div class=" pt-5 pb-5 mb-5" style="background: #d4d5de";>
+    <h2 class="text-center mb-3">Our Promises</h2>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-12 col-sm-3">
+                <div class="row my-3 justify-content-center">
+                    <div class="col-3 icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="90%" height="90%" fill="currentColor" class="bi bi-shield-fill-check " viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z" />
+                        </svg>
+                    </div>
+                    <div class="col-6">
+                        <p class="m-0">
+                            <strong>Guarantee</strong>
+                        </p>
+                        <span>30 Days Guarantee</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-3">
+                <div class="row my-3 justify-content-center">
+                    <div class="col-3 icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="90%" height="90%" fill="currentColor" class="bi bi-percent" viewBox="0 0 16 16">
+                            <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0zM4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                        </svg>
+                    </div>
+                    <div class="col-6">
+                        <p class="m-0">
+                            <strong>10% Discount</strong>
+                        </p>
+                        <span>When Signing Up</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-3">
+                <div class="row my-3 justify-content-center">
+                    <div class="col-3 icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="90%" height="90%" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16">
+                            <path d="M14.06 3.713c.12-1.071-.093-1.832-.702-2.526C12.628.356 11.312 0 9.626 0H4.734a.7.7 0 0 0-.691.59L2.005 13.509a.42.42 0 0 0 .415.486h2.756l-.202 1.28a.628.628 0 0 0 .62.726H8.14c.429 0 .793-.31.862-.731l.025-.13.48-3.043.03-.164.001-.007a.351.351 0 0 1 .348-.297h.38c1.266 0 2.425-.256 3.345-.91.379-.27.712-.603.993-1.005a4.942 4.942 0 0 0 .88-2.195c.242-1.246.13-2.356-.57-3.154a2.687 2.687 0 0 0-.76-.59l-.094-.061ZM6.543 8.82a.695.695 0 0 1 .321-.079H8.3c2.82 0 5.027-1.144 5.672-4.456l.003-.016c.217.124.4.27.548.438.546.623.679 1.535.45 2.71-.272 1.397-.866 2.307-1.663 2.874-.802.57-1.842.815-3.043.815h-.38a.873.873 0 0 0-.863.734l-.03.164-.48 3.043-.024.13-.001.004a.352.352 0 0 1-.348.296H5.595a.106.106 0 0 1-.105-.123l.208-1.32.845-5.214Z" />
+                        </svg>
+                    </div>
+                    <div class="col-6">
+                        <p class="m-0">
+                            <strong>Safe Purchase</strong>
+                        </p>
+                        <span>Pay with Paypal</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-3">
+                <div class="row my-3 justify-content-center">
+                    <div class="col-3 icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="90%" height="90%" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
+                            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                        </svg>
+                    </div>
+                    <div class="col-6">
+                        <p class="m-0">
+                            <strong>Shipping</strong>
+                        </p>
+                        <span>Free Fast Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div >
+<h2 class="text-center mb-3">Top Companies</h2>
+<div class="container my-4">
+    <div class="row">
+        <div class="col-3">
+            <div class="my-5 rounded">
+                <a asp-controller="Companies" asp-action="Details" asp-route-id=4>
+                    <img src="https://download.logo.wine/logo/Matrox/Matrox-Logo.wine.png" class="w-100 my-auto" alt="Company Logo">
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="my-5 rounded">
+                <a asp-controller="Companies" asp-action="Details" asp-route-id=3>
+                    <img src="https://1000logos.net/wp-content/uploads/2017/02/Intel-Logo-2005.png" class="w-100" alt="Company Logo">
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="my-5 rounded">
+                <a asp-controller="Companies" asp-action="Details" asp-route-id=1>
+                    <img src="https://s3.amazonaws.com/cms.ipressroom.com/219/files/20149/544a0d86f6091d6699000060_NVLogo_2D/NVLogo_2D_362acb00-8e1b-476b-9662-9fe138a4a920-prv.jpg" class="w-100 my-auto" alt="Company Logo">
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="my-5 rounded">
+                <img src="https://logos-world.net/wp-content/uploads/2020/03/AMD-Logo-1990-present.jpg" class="w-100" alt="Company Logo">
+            </div>
+        </div>
+    </div>
+</div>
+<h2 class="text-center mb-3">Shop Now</h2>
+<div class="row justify-content-xl-between justify-content-center my-5  mx-auto productlayout">
+    @foreach (var item in Model)
+    {
+        <div class="productcard col-xl-6 col-12 mb-5">
+
+            <div class="photo d-flex align-items-center">
+                <img src="@item.ImageURL" style="max-width: 240px;max-height :240px; width : 100%;">
+            </div>
+            <div class="description">
+                <h2 class="h2card">@item.ProductName
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="text-black float-right" asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-fill"></i></a>
+                    }
+                </h2>
+                <h4 class="h4card">@item.Company.CompanyName</h4>
+                <h1 class="h1card">@item.Price.ToString("c")</h1>
+                <p class="pcard">Category: @(item.Category.GetDisplayName())</p>
+                <a class="btn btn-outline-primary" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">
+                    <i class="bi bi-eye-fill"></i> Show Details
+                </a>
+                <a class="btn btn-primary text-white"
+                   asp-controller="Orders"
+                   asp-action="AddToShoppingCart"
+                   asp-route-id="@item.Id">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                </a>
+            </div>
+        </div>
+    }
+</div>
